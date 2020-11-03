@@ -1,0 +1,7 @@
+/.idea
+/node_modules
+README.md
+.editorconfig
+.git
+.gitignore
+.vscode
