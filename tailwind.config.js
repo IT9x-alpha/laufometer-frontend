@@ -88,7 +88,7 @@ module.exports = {
           }
        }
      }
-  }
+  },
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus'],
     borderColor: ['responsive', 'hover', 'focus'],
