@@ -1,7 +1,9 @@
 <template>
   <div>
-    <Nuxt />
-  </div>
+    <LaufometerHeader />
+    <Nuxt />    
+    <LaufometerFooter />
+  </div>  
 </template>
 
 <style>

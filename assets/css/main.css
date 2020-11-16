@@ -1,0 +1,17 @@
+:root {
+    --itech-blue: #004f9f;
+    --itech-green: #00983a;
+    --itech-red:#e4032e;
+    --itech-gray: #454545;
+    --itech-lightGray: #e9ecef;
+}
+html {
+    font-size: 10px
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Exo", sans-serif;
+}
+.page-container {
+    padding: 80px 0 50px;
+}

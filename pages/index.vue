@@ -3,7 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">
-        laufometer-frontend
+        laufometer-frontend test sdf
       </h1>
       <div class="links">
         <a
