@@ -1,5 +1,5 @@
 <template>
-    <v-form @submit.prevent="submitForm" v-model="formIsValid">
+    <v-form @submit.prevent="submitForm" ref="form" v-model="formIsValid">
         <div :class="['register_form '+  activity]">
             <div class="form-section d-flex flex-row justify-content-between">
                 <div class="activity_block">
@@ -25,16 +25,33 @@
 
             <div class="form-section d-flex flex-column align-items-center">
                 <div class="entry-block">                    
-                    <v-text-field label="Wie viel?" :rules="distanceRules" color="gray" @keyup="filterDistanceInput" :disabled="activity==''" hide-details="auto" v-model="distance"></v-text-field>                    
+                    <v-text-field 
+                        label="Wie viel?" 
+                        :rules="distanceRules" 
+                        color="gray" 
+                        @keyup="filterDistanceInput" 
+                        :disabled="activity==''" 
+                        hide-details="auto" 
+                        v-model="distance" 
+                        required>
+                    </v-text-field>
                 </div>
     
                 <div class="entry-block">                    
-                    <v-select :items="groupItems" label="welche Grouppe?" color="gray" :disabled="activity==''" v-model="group"></v-select> 
+                    <v-select 
+                        :items="groupItems" 
+                        label="welche Grouppe?" 
+                        :rules="selectRules"                         
+                        color="gray"                        
+                        :disabled="activity==''" 
+                        v-model="group">
+                    </v-select>                    
                 </div>
     
                 <div class="entry-block">                    
                     <input class="submit-button" :disabled="!formIsValid" type="submit" value="Senden"> 
-                </div>                
+                </div>           
+                   
             </div>
         </div>            
     </v-form>
@@ -47,14 +64,14 @@ export default {
         return {
             activity: "",
             formIsValid: false,
-            group: "testGroup",
+            group: "",
             groupItems: ['CK9a', 'CK9b', 'PC9a', 'UT8a', 'IT8b','IT9d','IT9x'],
             distance: "",            
             unit: "m",
             minRagne: 0,
-            maxRange:0,                                                
+            maxRange:0,
             distanceRules: [
-                value => !!value || 'Required.',                
+                value => !!value || 'Required!',                
                 value => {        
                     const convertedValue =  (value || '')
                     const errorMessage =  'muss zwischen ' + this.minRange + ' und '+ this.maxRange + ' sein.'        
@@ -64,9 +81,13 @@ export default {
                     const pattern = /^\d+(\,\d{0,1})?$/                    
                     return pattern.test(value) || 'Invalid number.'
                 },
-            ],            
+            ],
+            selectRules: [
+                (value) => !!value || "Required!"
+            ],
+            
         }
-    },
+    },    
     watch: {    
             
          activity(value){             
@@ -87,7 +108,7 @@ export default {
         filterDistanceInput(e){            
             e.target.value = e.target.value.replace(/[^0-9,]+/g, '') 
             this.distance = e.target.value 
-        },        
+        },       
         updateRange(){
             const swimmingMinRange = 100
             const swimmingMaxRange = 2000
@@ -178,7 +199,7 @@ export default {
 .submit-button {
     border: 1px solid var(--itech-gray);
     border-radius: 3px 3px 3px 3px;
-    margin-top:25px;
+    margin-top: 15px;
     color: var(--itech-gray);
     font-size: 1.2rem;
     padding: 3px 35px;
@@ -231,6 +252,11 @@ export default {
 
 .v-application .primary--text {
     color: var(--itech-gray)!important;    
+}
+
+.v-text-field .v-label--active {	
+	transform: translateY(-22px) scale(0.75);
+    overflow: visible;
 }
 
 </style>

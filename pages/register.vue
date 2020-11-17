@@ -1,14 +1,14 @@
 <template>  
-  <div class="container page-container">
-      <div class="row">
-        <div class="col-sm-4 offset-sm-4">
+  <v-container>
+      <v-row>
+        <v-col offset-md="2" md="8"  offset-lg="3" lg="6"  offset-xl="4" xl="4" >
           <h1 class="title-mode-1">
             laufometer-frontend        
           </h1>
           <RegisterationForm />
-        </div>                  
-      </div>
-  </div>  
+        </v-col>                  
+      </v-row>
+  </v-container>  
 </template>
 
 <script>
