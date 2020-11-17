@@ -1,16 +1,14 @@
-<template>
+<template>  
   <div class="container page-container">
-    <div class="row">
-      <div class="col-sm-6 offset-sm-3">
-        <h1 class="title">
-          laufometer-frontend        
-        </h1>
-        <RegisterationForm />
+      <div class="row">
+        <div class="col-sm-4 offset-sm-4">
+          <h1 class="title-mode-1">
+            laufometer-frontend        
+          </h1>
+          <RegisterationForm />
+        </div>                  
       </div>
-
-                  
-    </div>
-  </div>
+  </div>  
 </template>
 
 <script>
@@ -24,7 +22,7 @@ export default {
 </script>
 
 <style>
-  .title {
+  .title-mode-1 {
     text-align: center;
   }
 </style>

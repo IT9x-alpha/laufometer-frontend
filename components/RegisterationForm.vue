@@ -1,7 +1,7 @@
 <template>
-    <form @submit.prevent="submitForm">
-        <div class="register_form">
-            <div class="d-flex flex-row justify-content-between">
+    <v-form @submit.prevent="submitForm" v-model="formIsValid">
+        <div :class="['register_form '+  activity]">
+            <div class="form-section d-flex flex-row justify-content-between">
                 <div class="activity_block">
                     <label>
                         <input type="radio" id="swimming" name="activity" value="swimming" v-model="activity">
@@ -23,25 +23,21 @@
                 </div>                      
             </div>
 
-            <div class="d-flex flex-column align-items-center">
-                <div class="entry-block">
-                    <label for="distance">Wie viel?</label>                
-                    <input class= "register-input" type="text" id="distance" name="distance" maxlength="6" @input="filterDistanceInput" @blur="handleDistanceBlur" v-model="distance"> 
+            <div class="form-section d-flex flex-column align-items-center">
+                <div class="entry-block">                    
+                    <v-text-field label="Wie viel?" :rules="distanceRules" color="gray" @keyup="filterDistanceInput" :disabled="activity==''" hide-details="auto" v-model="distance"></v-text-field>                    
                 </div>
     
-                <div class="entry-block">
-                    <label for="group">Gruppe:</label>                
-                    <input class= "register-input" type="text" id="group" name="group" v-model="group"> 
+                <div class="entry-block">                    
+                    <v-select :items="groupItems" label="welche Grouppe?" color="gray" :disabled="activity==''" v-model="group"></v-select> 
                 </div>
     
-                <div class="entry-block">
-                    <input class="submit-button" type="submit" value="Senden"> 
-                </div>
+                <div class="entry-block">                    
+                    <input class="submit-button" :disabled="!formIsValid" type="submit" value="Senden"> 
+                </div>                
             </div>
-            
-
         </div>            
-    </form>
+    </v-form>
 </template>
 
 <script scoped>
@@ -50,19 +46,32 @@ export default {
     data() {
         return {
             activity: "",
+            formIsValid: false,
             group: "testGroup",
-            distance: 0,                     
+            groupItems: ['CK9a', 'CK9b', 'PC9a', 'UT8a', 'IT8b','IT9d','IT9x'],
+            distance: "",            
             unit: "m",
             minRagne: 0,
-            maxRange:0,                                    
-            message: "test message"
+            maxRange:0,                                                
+            distanceRules: [
+                value => !!value || 'Required.',                
+                value => {        
+                    const convertedValue =  (value || '')
+                    const errorMessage =  'muss zwischen ' + this.minRange + ' und '+ this.maxRange + ' sein.'        
+                    return (convertedValue >= this.minRange && convertedValue <= this.maxRange ) ||  errorMessage                   
+                },                
+                value => {                    
+                    const pattern = /^\d+(\,\d{0,1})?$/                    
+                    return pattern.test(value) || 'Invalid number.'
+                },
+            ],            
         }
     },
     watch: {    
             
          activity(value){             
              this.updateRange()
-             this.distance=this.minRange           
+             this.distance = this.minRange
          }
     },
     computed: {
@@ -76,19 +85,9 @@ export default {
     },
     methods: {        
         filterDistanceInput(e){            
-            e.target.value = e.target.value.replace(/[^0-9]+/g, '') 
-            this.distance = e.target.value          
-        },
-        handleDistanceBlur(e){
-           if(this.distance > this.maxRange){
-               this.distance = this.maxRange
-           }
-           if(this.distance < this.minRange){
-               this.distance = this.minRange
-           }
-           console.log("we are here")
-        }
-        ,
+            e.target.value = e.target.value.replace(/[^0-9,]+/g, '') 
+            this.distance = e.target.value 
+        },        
         updateRange(){
             const swimmingMinRange = 100
             const swimmingMaxRange = 2000
@@ -126,6 +125,11 @@ export default {
 .register_form {   
     padding: 55px 0;
 }
+
+.form-section{
+    margin-bottom: 15px;
+}
+
 .activity_block{
     width: 150px;
     padding: 15px;
@@ -156,7 +160,8 @@ export default {
 
 .entry-block {
     margin-bottom: 10px;
-    padding: 15px;
+    padding: 5px;
+    min-height:95px;
 }
 
 .entry-block label {
@@ -169,6 +174,7 @@ export default {
     color: var(--itech-gray);
     font-size: 1.2rem;
 }
+
 .submit-button {
     border: 1px solid var(--itech-gray);
     border-radius: 3px 3px 3px 3px;
@@ -179,8 +185,52 @@ export default {
     background-color: var(--white);
     transition: 500ms;
 }
+
+.swimming .submit-button {
+    border-color: var(--itech-blue);
+    color:  var(--itech-blue);
+}
+
+.jogging .submit-button {
+    border-color: var(--itech-green);
+    color: var(--itech-green);
+}
+
+.cycling .submit-button {
+    border-color: var(--itech-red);
+    color: var(--itech-red);
+}
+
 .submit-button:hover {
     color: var(--white);
     background-color: var(--itech-gray);
-}    
+}
+
+.swimming .v-input__slot::before , .swimming .v-input__slot::before {
+	border-color: var(--itech-blue)!important;
+} 
+
+.jogging .v-input__slot::before, jogging .jogging .v-input__slot::after {
+	border-color: var(--itech-green)!important;
+}
+
+.cycling .v-input__slot::before, .cycling .v-input__slot::after {
+	border-color: var(--itech-red)!important;
+}
+
+.v-input {
+    width:250px;
+}
+.v-label {
+    color: var(--itech-gray)!important;
+}
+
+.v-messages__message {
+    color: var(--red);
+}
+
+.v-application .primary--text {
+    color: var(--itech-gray)!important;    
+}
+
 </style>

@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <LaufometerHeader />
-    <Nuxt />    
-    <LaufometerFooter />
-  </div>  
+  <v-app>
+    <div>
+      <LaufometerHeader />
+      <Nuxt />    
+      <LaufometerFooter />
+    </div>  
+  </v-app>
 </template>
 
 <style>
