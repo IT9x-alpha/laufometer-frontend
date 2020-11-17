@@ -148,7 +148,7 @@ export default {
 }
 
 .form-section{
-    margin-bottom: 15px;    
+    margin-bottom: 45px;    
 }
 
 .activity_block{
@@ -163,10 +163,6 @@ export default {
     transform: translateX(-50%);
     width: 15px;
     height: 15px;
-}
-
-.activity_block img {
-    margin-bottom:25px;
 }
 
 .register-input {
