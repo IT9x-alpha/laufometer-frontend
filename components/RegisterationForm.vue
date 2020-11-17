@@ -1,7 +1,7 @@
 <template>
     <v-form @submit.prevent="submitForm" ref="form" v-model="formIsValid">
         <div :class="['register_form '+  activity]">
-            <div class="form-section d-flex flex-row justify-content-between">
+            <div class="form-section d-flex flex-row justify-space-between">
                 <div class="activity_block">
                     <label>
                         <input type="radio" id="swimming" name="activity" value="swimming" v-model="activity">
@@ -23,7 +23,7 @@
                 </div>                      
             </div>
 
-            <div class="form-section d-flex flex-column align-items-center">
+            <div class="form-section d-flex flex-column align-center">
                 <div class="entry-block">                    
                     <v-text-field 
                         label="Wie viel?" 
@@ -148,23 +148,21 @@ export default {
 }
 
 .form-section{
-    margin-bottom: 15px;
+    margin-bottom: 15px;    
 }
 
 .activity_block{
     width: 150px;
     padding: 15px;
+    position: relative;
 }
-
-.activity_block label {
-    position: relative
-}
-
 .activity_block input{
     position: absolute;
     bottom: 0;
     left:50%;
     transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
 }
 
 .activity_block img {
