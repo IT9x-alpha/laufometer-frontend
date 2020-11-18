@@ -3,7 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">
-        laufometer-frontend
+        LaufOMeter
       </h1>
       <div class="links">
         <a
