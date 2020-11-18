@@ -26,7 +26,7 @@
             <div class="form-section d-flex flex-column align-center">
                 <div class="entry-block">                    
                     <v-text-field 
-                        label="Wie viel?" 
+                        label="Distanz in km" 
                         :rules="distanceRules" 
                         color="gray" 
                         @keyup="filterDistanceInput" 
