@@ -40,7 +40,7 @@
                 <div class="entry-block">                    
                     <v-select 
                         :items="groupItems" 
-                        label="welche Grouppe?" 
+                        label="welche Gruppe?" 
                         :rules="selectRules"                         
                         color="gray"                        
                         :disabled="activity==''" 
