@@ -1,11 +1,11 @@
 <template>  
   <v-container>
       <v-row>
-        <v-col offset-md="2" md="8"  offset-lg="3" lg="6"  offset-xl="4" xl="4" >
+        <v-col offset-md="2" md="8"  offset-lg="2" lg="8"  offset-xl="3" xl="6" >
           <h1 class="title-mode-1">
-            laufometer-frontend        
+            laufometer-ranking        
           </h1>
-          <RegisterationForm />
+          <RankingTable/>
         </v-col>                  
       </v-row>
   </v-container>  
@@ -15,13 +15,13 @@
 export default {        
     data(){
         return {
-            distance:20
+            
         }
     }
 }
 </script>
 
-<style scoped>
+<style>
   .title-mode-1 {
     text-align: center;
   }

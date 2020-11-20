@@ -26,7 +26,7 @@
             <div class="form-section d-flex flex-column align-center">
                 <div class="entry-block">                    
                     <v-text-field 
-                        label="Distanz in km" 
+                        label="Wie viel?" 
                         :rules="distanceRules" 
                         color="gray" 
                         @keyup="filterDistanceInput" 
@@ -40,7 +40,7 @@
                 <div class="entry-block">                    
                     <v-select 
                         :items="groupItems" 
-                        label="welche Gruppe?" 
+                        label="welche Grouppe?" 
                         :rules="selectRules"                         
                         color="gray"                        
                         :disabled="activity==''" 
@@ -142,7 +142,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .register_form {   
     padding: 55px 0;
 }
