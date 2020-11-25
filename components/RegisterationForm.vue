@@ -11,8 +11,8 @@
                 </div>
                 <div class="activity_block">                
                     <label>
-                        <input type="radio" id="jogging" name="activity" value="jogging" v-model="activity">
-                        <img :src="activityImageURL('jogging')" alt="jogging">                        
+                        <input type="radio" id="walking" name="activity" value="walking" v-model="activity">
+                        <img :src="activityImageURL('walking')" alt="walking">                        
                     </label>                
                 </div>
                 <div class="activity_block">
@@ -26,7 +26,7 @@
             <div class="form-section d-flex flex-column align-center">
                 <div class="entry-block">                    
                     <v-text-field 
-                        label="Distanz in km" 
+                        label="Wie viel?" 
                         :rules="distanceRules" 
                         color="gray" 
                         @keyup="filterDistanceInput" 
@@ -121,7 +121,7 @@ export default {
                     this.minRange = swimmingMinRange
                     this.maxRange = swimmingMaxRange
                     break;
-                case "jogging":
+                case "walking":
                     this.minRange = jogginMinRange
                     this.maxRange = jogginMaxRange
                     break;
@@ -142,7 +142,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .register_form {   
     padding: 55px 0;
 }
@@ -206,7 +206,7 @@ export default {
     color:  var(--itech-blue);
 }
 
-.jogging .submit-button {
+.walking .submit-button {
     border-color: var(--itech-green);
     color: var(--itech-green);
 }
@@ -225,7 +225,7 @@ export default {
 	border-color: var(--itech-blue)!important;
 } 
 
-.jogging .v-input__slot::before, jogging .jogging .v-input__slot::after {
+.walking .v-input__slot::before, walking .walking .v-input__slot::after {
 	border-color: var(--itech-green)!important;
 }
 
