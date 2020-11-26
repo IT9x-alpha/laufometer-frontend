@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="98mm"
+   height="55mm"
+   viewBox="0 0 98 55"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="halfpolygon-hover.svg">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect839"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,0,1,0,8.5,0,1 @ F,0,0,1,0,8.5,0,1 @ F,0,0,1,0,8.5,0,1 @ F,0,0,1,0,8.5,0,1 @ F,0,0,1,0,8.5,0,1 @ F,0,0,1,0,8.5,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70000001"
+     inkscape:cx="-154.12316"
+     inkscape:cy="532.26134"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="2400"
+     inkscape:window-height="1271"
+     inkscape:window-x="-9"
+     inkscape:window-y="-3"
+     inkscape:window-maximized="1"
+     showguides="false"
+     width="296mm" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path835"
+       style="fill:#454545;fill-opacity:1;stroke-width:0.196086"
+       d="m 0.86475102,1.3367643 0.07827,8.4554 h 0.0036 l 0.01447,1.7037697 0.11937198,11.17968 c 0.04169,3.89328 2.162495,7.46864 5.562968,9.37927 l 37.808029,21.24419 c 3.400449,1.91086 7.564407,1.86679 10.923357,-0.11576 l 37.34604,-22.04361 c 3.35898,-1.98268 5.40215,-5.60261 5.3604,-9.49607 L 97.944107,1.1537043 c -46.30531,0.0802 -48.19738,-0.10347 -97.07938298,0.18306 z m -0.743902,10.3891297 c -0.0024,0.002 -0.0062,0.002 -0.0078,0.005 0.0021,-10e-4 0.0035,-7.9e-4 0.0052,-10e-4 7.94e-4,-10e-4 0.0019,-0.002 0.0026,-0.003 z"
+       sodipodi:nodetypes="ccccccccccccccccc" />
+  </g>
+</svg>

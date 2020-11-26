@@ -2,9 +2,9 @@
   <v-container>
       <v-row>
         <v-col offset-md="2" md="8"  offset-lg="3" lg="6"  offset-xl="4" xl="4" >
-          <h1 class="title-mode-1">
-            Daten eintragen       
-          </h1>
+          <h3 class="title-mode-1">
+            Dateneingabe       
+          </h3>
           <RegisterationForm />
         </v-col>                  
       </v-row>
@@ -21,8 +21,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  .title-mode-1 {
-    text-align: center;
-  }
+<style>
+  
 </style>
