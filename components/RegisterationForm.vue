@@ -213,15 +213,15 @@ export default {
 
 <style>
 .register_form {   
-    padding: 55px 0 5px;
+    padding: 5px 0;
 }
 
 .form-section{
-    margin-bottom: 45px;    
+    margin-bottom: 20px;    
 }
 
 .activity-block{
-    width: 150px;
+    width: 120px;
     padding: 15px;
     position: relative;
 }
@@ -330,6 +330,22 @@ export default {
 .v-text-field .v-label--active {	
 	transform: translateY(-22px) scale(0.75);
     overflow: visible;
+}
+
+@media (min-width: 960px) {
+    .activity-block{
+        width: 120px;        
+    }
+}
+@media (min-width: 1264px) {
+    .activity-block{
+        width: 130px;        
+    }
+}
+@media (min-width: 1904px) {
+    .activity-block{
+        width: 150px;        
+    }
 }
 
 </style>

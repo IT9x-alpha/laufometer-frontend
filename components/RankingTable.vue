@@ -102,10 +102,10 @@ export default {
             return ['xs','sm'].indexOf(this.$vuetify.breakpoint.name) > -1 ? {vertical:false} : {vertical:true}
         },
         itemsPerPage: function() {
-            return ['xs','sm'].indexOf(this.$vuetify.breakpoint.name) > -1 ? 5 : 10
+            return ['xl'].indexOf(this.$vuetify.breakpoint.name) > -1 ? 10 : 6
         },
         tableHeight: function() {
-            return ['xs','sm'].indexOf(this.$vuetify.breakpoint.name) > -1 ? 295 : 535
+            return ['xl'].indexOf(this.$vuetify.breakpoint.name) > -1 ? 535 : 340
         },
         activity: function() {
             switch (this.selectedTab) {
@@ -144,6 +144,9 @@ export default {
 </script>
 
 <style>
+.ranking-table {
+    margin-bottom: 40px;;
+}
 
 .ranking-table .v-tabs--vertical > .v-tabs-bar .v-tab,  .ranking-table .v-tabs > .v-tabs-bar .v-tab{
      height:120px;
@@ -167,7 +170,7 @@ export default {
 }
 
 .ranking-table .v-tabs-items {
-    margin-top: 40px;
+    margin-top: 10px;
     margin-left: 20px;
 }
 

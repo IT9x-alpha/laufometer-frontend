@@ -1,10 +1,8 @@
 <template>
-  <v-app>
-    <div>
+  <v-app>    
       <LaufometerHeader />
       <Nuxt />    
-      <LaufometerFooter />
-    </div>  
+      <LaufometerFooter />     
   </v-app>
 </template>
 
@@ -35,6 +33,9 @@ html {
   margin: 0;
 }
 
+.v-application--wrap {
+  padding-bottom: 125px;
+}
 .button--green {
   display: inline-block;
   border-radius: 4px;
