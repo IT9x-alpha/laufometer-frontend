@@ -8,12 +8,13 @@
             <v-tab-item>
                 <v-data-table
                     :headers="headers"
-                    :items="entries.swimming"
+                    :items="entries.swimming"                    
                     :items-per-page=itemsPerPage 
-                    :mobile-breakpoint= "false"
+                    :mobile-breakpoint= "0"
                     :loading="dataLoading"
-                    :height=tableHeight                    
-                    :footer-props="footerProps"                
+                    :height=tableHeight
+                    :footer-props="footerProps"
+                    :hide-default-footer="hideFooter"                
                     class="elevation-1"
                 >
                 </v-data-table>
@@ -23,9 +24,10 @@
                     :headers="headers"
                     :items="entries.walking"
                     :items-per-page=itemsPerPage
-                    :mobile-breakpoint= "false"
+                    :mobile-breakpoint= "0"
                     :height=tableHeight
                     :footer-props="footerProps"
+                    :hide-default-footer="hideFooter"
                     class="elevation-1"
                 ></v-data-table>
             </v-tab-item>
@@ -34,13 +36,23 @@
                     :headers="headers"
                     :items="entries.cycling"
                     :items-per-page=itemsPerPage
-                    :mobile-breakpoint= "false"
+                    :mobile-breakpoint= "0"
                     :height=tableHeight
                     :footer-props ="footerProps"
+                    :hide-default-footer="hideFooter"
                     class="elevation-1"
                 ></v-data-table>
-            </v-tab-item>        
-        </v-tabs>         
+            </v-tab-item> 
+        </v-tabs> 
+        <v-icon
+            small
+            color="gray darken-2"
+            @click="displayToggle"
+            v-if="showDisplay"
+            class="display-toggle"
+            >
+        {{displayIcon}}
+        </v-icon>       
     </div>      
   </div>   
 </template>
@@ -51,12 +63,15 @@ export default {
     data(){ 
         return {
             dataLoading:true,            
-            selectedTab: 0,                        
+            selectedTab: 0,
+            displayMode: false,            
             footerProps: {
                 disableItemsPerPage: true,                    
                 itemsPerPageText:'Zeilen pro Seite',
                 pageText: '{0}-{1} von {2}'
             },
+            displayIcon: "mdi-play",
+            hideFooter: false,
             headers: [
                 {
                     text:'#',
@@ -101,6 +116,9 @@ export default {
         verticalToggle: function() {
             return ['xs','sm'].indexOf(this.$vuetify.breakpoint.name) > -1 ? {vertical:false} : {vertical:true}
         },
+        showDisplay: function() {
+            return ['xs','sm',"md"].indexOf(this.$vuetify.breakpoint.name) > -1 ? false : true
+        },
         itemsPerPage: function() {
             return ['xl'].indexOf(this.$vuetify.breakpoint.name) > -1 ? 10 : 6
         },
@@ -138,14 +156,32 @@ export default {
                 index++ 
             })
             return activity
-        },        
+        },
+        displayToggle: function() {
+            this.displayMode = !this.displayMode
+            this.displayIcon = (this.displayIcon === "mdi-stop") ?  "mdi-play" : "mdi-stop"  
+            let currentTab = 0
+            let interval = setInterval(() => {                 
+                if (this.displayMode) {                     
+                    this.hideFooter = true                                                         
+                    this.selectedTab = currentTab % 3
+                    currentTab++
+                }
+                else { 
+                    clearInterval(interval);                    
+                    this.hideFooter = false                                                                             
+                }
+                }, 2000);          
+            
+        }
     },
 }
 </script>
 
 <style>
 .ranking-table {
-    margin-bottom: 40px;;
+    margin-bottom: 40px;
+    position: relative;
 }
 
 .ranking-table .v-tabs--vertical > .v-tabs-bar .v-tab,  .ranking-table .v-tabs > .v-tabs-bar .v-tab{
@@ -172,6 +208,12 @@ export default {
 .ranking-table .v-tabs-items {
     margin-top: 10px;
     margin-left: 20px;
+}
+
+.ranking-table .display-toggle {
+    position: absolute;
+    top: -15px;
+    left: 167px;
 }
 
 @media (max-width:960px) {
